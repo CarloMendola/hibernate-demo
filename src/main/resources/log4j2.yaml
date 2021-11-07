@@ -1,0 +1,61 @@
+Configuration:
+  name: default
+  Appenders:
+    Console:
+      name: Console
+      ignoreExceptions: false
+      PatternLayout:
+        pattern: '[%d{ISO8601}] [%p] [%c:%L] [demo1] - %m%n'
+      target: SYSTEM_OUT
+
+  Loggers:
+    Root:
+      level: INFO
+      AppenderRef:
+        - ref: Console
+    Logger:
+      - name: org.hibernate
+        level: info
+        additivity: false
+        AppenderRef:
+          - ref: Console
+      - name: org.hibernate.SQL
+        level: fatal
+        additivity: false
+        AppenderRef:
+          - ref: Console
+      - name: org.hibernate.stat
+        level: debug
+        additivity: false
+        AppenderRef:
+          - ref: Console
+      #    - name: org.hibernate.type
+      #      level: trace
+      #      additivity: false
+      #      AppenderRef:
+      #      - ref: Console
+      #    - name: org.hibernate.type.descriptor.sql.BasicBinder
+      #      level: trace
+      #      additivity: false
+      #      AppenderRef:
+      #      - ref: Console
+      - name: org.springframework.boot
+        level: INFO
+        additivity: false
+        AppenderRef:
+          - ref: Console
+      - name: org.springframework.core
+        level: ERROR
+        additivity: false
+        AppenderRef:
+          - ref: Console
+      - name: org.springframework.web
+        level: INFO
+        additivity: false
+        AppenderRef:
+          - ref: Console
+      - name: carlo.hibernate.demo1
+        level: DEBUG
+        additivity: false
+        AppenderRef:
+          - ref: Console
