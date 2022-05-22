@@ -70,3 +70,70 @@ alter table delta
     add constraint delta_deltatype_type_fk
         foreign key (type) references delta_type (id);
 
+create table appcontexts
+(
+    id varchar(36) not null,
+    last_update timestamp null,
+    locked tinyint not null,
+    status varchar(36) not null,
+    worker varchar(256) null,
+    thread_id varchar(36) null,
+    constraint appcontexts_pk
+        primary key (id)
+);
+create table dynamicdata
+(
+    app_context_id varchar(36) not null,
+    inserted_at timestamp not null,
+    dyn_data_id varchar(36) not null,
+    dyn_value integer not null,
+    constraint dyn_data_pk
+        primary key (dyn_data_id)
+);
+alter table dynamicdata
+    add constraint dyn_data_appcontexts_fk
+        foreign key (app_context_id) references appcontexts (id);
+
+insert into appcontexts (id, last_update, locked, status, worker, thread_id)
+values
+    ('1', '2000-01-01T00:00:00', 0, 'IDLE', null, null),
+    ('2', '2000-01-01T00:00:00', 0, 'IDLE', null, null),
+    ('3', '2000-01-01T00:00:00', 0, 'IDLE', null, null),
+    ('4', '2000-01-01T00:00:00', 0, 'IDLE', null, null),
+    ('5', '2000-01-01T00:00:00', 0, 'IDLE', null, null),
+    ('6', '2000-01-01T00:00:00', 0, 'IDLE', null, null),
+    ('7', '2000-01-01T00:00:00', 0, 'IDLE', null, null),
+    ('8', '2000-01-01T00:00:00', 0, 'IDLE', null, null),
+    ('9', '2000-01-01T00:00:00', 0, 'IDLE', null, null),
+    ('10', '2000-01-01T00:00:00', 0, 'IDLE', null, null),
+    ('11', '2000-01-01T00:00:00', 0, 'IDLE', null, null),
+    ('12', '2000-01-01T00:00:00', 0, 'IDLE', null, null),
+    ('13', '2000-01-01T00:00:00', 0, 'IDLE', null, null),
+    ('14', '2000-01-01T00:00:00', 0, 'IDLE', null, null),
+    ('15', '2000-01-01T00:00:00', 0, 'IDLE', null, null),
+    ('16', '2000-01-01T00:00:00', 0, 'IDLE', null, null),
+    ('17', '2000-01-01T00:00:00', 0, 'IDLE', null, null),
+    ('18', '2000-01-01T00:00:00', 0, 'IDLE', null, null),
+    ('19', '2000-01-01T00:00:00', 0, 'IDLE', null, null),
+    ('20', '2000-01-01T00:00:00', 0, 'IDLE', null, null),
+    ('21', '2000-01-01T00:00:00', 0, 'IDLE', null, null),
+    ('22', '2000-01-01T00:00:00', 0, 'IDLE', null, null),
+    ('23', '2000-01-01T00:00:00', 0, 'IDLE', null, null),
+    ('24', '2000-01-01T00:00:00', 0, 'IDLE', null, null),
+    ('25', '2000-01-01T00:00:00', 0, 'IDLE', null, null),
+    ('26', '2000-01-01T00:00:00', 0, 'IDLE', null, null),
+    ('27', '2000-01-01T00:00:00', 0, 'IDLE', null, null),
+    ('28', '2000-01-01T00:00:00', 0, 'IDLE', null, null),
+    ('29', '2000-01-01T00:00:00', 0, 'IDLE', null, null),
+    ('30', '2000-01-01T00:00:00', 0, 'IDLE', null, null),
+    ('31', '2000-01-01T00:00:00', 0, 'IDLE', null, null),
+    ('32', '2000-01-01T00:00:00', 0, 'IDLE', null, null),
+    ('33', '2000-01-01T00:00:00', 0, 'IDLE', null, null),
+    ('34', '2000-01-01T00:00:00', 0, 'IDLE', null, null),
+    ('35', '2000-01-01T00:00:00', 0, 'IDLE', null, null),
+    ('36', '2000-01-01T00:00:00', 0, 'IDLE', null, null),
+    ('37', '2000-01-01T00:00:00', 0, 'IDLE', null, null),
+    ('38', '2000-01-01T00:00:00', 0, 'IDLE', null, null),
+    ('39', '2000-01-01T00:00:00', 0, 'IDLE', null, null),
+    ('40', '2000-01-01T00:00:00', 0, 'IDLE', null, null)
+;

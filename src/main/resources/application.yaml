@@ -25,7 +25,7 @@ spring:
           time_zone: UTC
           batch_size: 50
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/test?verifyServerCertificate=false&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC
+    url: jdbc:mysql://127.0.0.1:3306/test?verifyServerCertificate=false&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC&rewriteBatchedStatements=true
     username: root
     password: admin
     driver-class-name: org.mariadb.jdbc.Driver
